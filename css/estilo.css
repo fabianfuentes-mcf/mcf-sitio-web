@@ -1,0 +1,352 @@
+@import url("tipografias.css");
+
+/* ------------------------------------------------------------------
+   MCF Ingenieria y Construccion SpA
+   Diseno de la WEB 2, reescrito en HTML y CSS editables.
+
+   El acento es el cian del logo. Si alguna vez se quiere volver al
+   naranja original de la WEB 2, se cambia SOLO esta linea:
+       --acento: #E8541F;  --acento-cl: #FF7A45;
+   ------------------------------------------------------------------ */
+
+:root {
+  --fondo:     #0B0B0C;
+  --fondo-2:   #101012;
+  --fondo-3:   #1A1A1D;
+  --tinta:     #F4F3F0;
+  --tinta-2:   #C9C9C4;
+  --tinta-3:   #8A8A85;
+  --linea:     #232326;
+  --linea-2:   #2A2A2E;
+  --linea-3:   #3A3A3E;
+
+  --acento:    #35BBD6;
+  --acento-cl: #7FDCEC;
+
+  --display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono:    'IBM Plex Mono', 'Consolas', monospace;
+
+  --ancho: 1240px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--display);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* height:auto es obligatorio: sin eso el atributo height="..." del HTML gana
+   y las reglas de aspect-ratio de la galeria no se aplican. */
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--acento); text-decoration: none; }
+a:hover { color: var(--acento-cl); }
+::selection { background: var(--acento); color: var(--fondo); }
+
+.env { max-width: var(--ancho); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- tipografia comun ---------- */
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--tinta-3);
+  margin-bottom: 22px;
+  display: block;
+  text-transform: uppercase;
+}
+.eyebrow.acento { color: var(--acento); letter-spacing: .22em; }
+
+h1, h2, h3 { font-weight: 700; margin: 0; letter-spacing: -.03em; }
+h1 { font-size: clamp(40px, 7.2vw, 88px); line-height: .98; letter-spacing: -.035em; max-width: 16ch; text-wrap: balance; }
+h2 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.05; max-width: 18ch; }
+h3 { font-size: 17px; line-height: 1.3; letter-spacing: -.01em; }
+
+p { margin: 0 0 18px; color: var(--tinta-2); font-size: 16.5px; line-height: 1.65; max-width: 56ch; }
+p:last-child { margin-bottom: 0; }
+p.ancha { max-width: 78ch; }
+
+.seccion { border-bottom: 1px solid var(--linea); }
+.seccion > .env { padding-top: 88px; padding-bottom: 88px; }
+.seccion.tono { background: var(--fondo-2); }
+
+/* ---------- barra superior ---------- */
+
+.barra {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(11, 11, 12, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--linea);
+}
+.barra .env {
+  padding-top: 14px; padding-bottom: 14px;
+  display: flex; align-items: center; gap: 24px; justify-content: space-between;
+}
+.marca { display: flex; align-items: center; gap: 12px; color: var(--tinta); flex: none; }
+.marca:hover { color: var(--tinta); }
+.marca img { width: 38px; }
+.marca b { display: block; font-weight: 700; font-size: 15px; letter-spacing: .01em; line-height: 1.05; }
+.marca i {
+  display: block; font-family: var(--mono); font-size: 9px; font-style: normal;
+  letter-spacing: .18em; color: var(--tinta-3); margin-top: 2px;
+}
+
+nav.menu { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; justify-content: flex-end; }
+nav.menu a { color: var(--tinta-2); font-size: 13.5px; font-weight: 500; }
+nav.menu a:hover { color: var(--tinta); }
+nav.menu a.cta {
+  border: 1px solid var(--linea-3); color: var(--tinta);
+  font-family: var(--mono); font-size: 11.5px; font-weight: 600;
+  letter-spacing: .1em; padding: 10px 16px;
+}
+nav.menu a.cta:hover { border-color: var(--tinta); background: var(--fondo-3); color: var(--tinta); }
+
+.abrir-menu { display: none; }
+
+/* ---------- botones ---------- */
+
+.boton {
+  display: inline-block; font-weight: 600; font-size: 14px;
+  padding: 15px 26px; border: 1px solid var(--linea-3); color: var(--tinta);
+  background: none; cursor: pointer; font-family: inherit;
+}
+.boton:hover { border-color: var(--tinta); color: var(--tinta); }
+.boton.lleno { background: var(--acento); border-color: var(--acento); color: var(--fondo); }
+.boton.lleno:hover { background: var(--acento-cl); border-color: var(--acento-cl); color: var(--fondo); }
+
+/* ---------- portada ---------- */
+
+.portada > .env { padding-top: 96px; padding-bottom: 0; }
+.portada .bajada {
+  display: flex; flex-wrap: wrap; gap: 32px;
+  align-items: flex-end; justify-content: space-between; margin-top: 44px;
+}
+.portada .bajada p { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.55; max-width: 54ch; margin: 0; }
+.portada .acciones { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- fila de cifras ---------- */
+
+.cifras {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border-top: 1px solid var(--linea); margin-top: 64px;
+}
+.cifras > div { padding: 28px 24px 34px; border-right: 1px solid var(--linea); }
+.cifras > div:first-child { padding-left: 0; }
+.cifras > div:last-child { border-right: 0; padding-right: 0; }
+.cifras b {
+  display: block; font-size: clamp(32px, 3.4vw, 44px); font-weight: 700;
+  letter-spacing: -.03em; line-height: 1;
+}
+.cifras b.acento { color: var(--acento); }
+.cifras small {
+  display: block; font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .14em; color: var(--tinta-3); margin-top: 10px; line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* ---------- rejillas ---------- */
+
+.dos-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; }
+.dos-col.ajustada { gap: 40px; }
+
+/* Rejilla de fichas separadas por un hilo de 1px.
+   El hilo lo dibuja cada ficha con box-shadow, NO el fondo del contenedor:
+   si no, cuando la ultima fila queda incompleta ese fondo asoma y se ven
+   rectangulos grises donde no hay nada. */
+.fichas {
+  display: grid; gap: 1px; align-content: start;
+}
+.fichas.c2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+/* 300px y no 260: con 260 caben 4 columnas y las rejillas de seis fichas
+   quedan 4+2, con la ultima fila coja. Con 300 van 3, 2 o 1 columnas, y
+   seis se reparte exacto en las tres. */
+.fichas.c3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.fichas > * {
+  background: var(--fondo); padding: 24px;
+  box-shadow: 0 0 0 1px var(--linea);
+}
+.fichas .rot {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em; color: var(--acento);
+  text-transform: uppercase; display: block;
+}
+.fichas .fuerte { font-size: 17px; font-weight: 600; margin-top: 8px; }
+.fichas .tenue { font-family: var(--mono); font-size: 12.5px; color: var(--tinta-3); margin-top: 4px; }
+
+/* tarjetas de servicio / ciclo / equipo */
+.tarjeta { background: var(--fondo); padding: 34px 28px 40px; }
+.tarjeta .tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  color: var(--acento); display: block; margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.tarjeta h3 { margin-bottom: 10px; font-size: 19px; }
+.tarjeta p { font-size: 15px; line-height: 1.6; color: var(--tinta-3); margin: 0; }
+.tarjeta .num {
+  font-family: var(--mono); font-size: 20px; font-weight: 600;
+  color: var(--acento); display: block; margin-bottom: 14px;
+}
+
+/* ---------- listas ---------- */
+
+ul.lista { list-style: none; margin: 0; padding: 0; }
+ul.lista li {
+  position: relative; padding-left: 24px; margin-bottom: 14px;
+  color: var(--tinta-2); font-size: 15.5px; line-height: 1.55;
+}
+ul.lista li::before {
+  content: ""; position: absolute; left: 0; top: .55em;
+  width: 7px; height: 7px; border: 1px solid var(--acento);
+}
+
+/* ---------- cobertura ---------- */
+
+.zonas { display: grid; gap: 1px; }
+.zonas > div {
+  background: var(--fondo); padding: 20px 24px;
+  box-shadow: 0 0 0 1px var(--linea);
+  display: flex; align-items: center; gap: 16px; justify-content: space-between; flex-wrap: wrap;
+}
+.zonas .nom { font-size: 16.5px; font-weight: 600; }
+.zonas .est {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em;
+  color: var(--tinta-3); text-transform: uppercase;
+}
+.zonas .est.viva { color: var(--acento); }
+
+/* ---------- referencias ---------- */
+
+/* cuatro mandantes: que quepan en una sola fila y no quede un hueco */
+.referencias .fichas { grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
+.referencias .tarjeta { padding: 30px 24px 34px; }
+
+.referencias .tarjeta .red {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  color: var(--tinta-3); display: block; margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.referencias .tarjeta .nombre {
+  font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px;
+}
+.referencias .tarjeta .periodo {
+  font-family: var(--mono); font-size: 12px; color: var(--acento); margin-bottom: 16px;
+}
+
+/* ---------- obras: la galeria de fotos ---------- */
+
+.cab-obras {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  justify-content: space-between; align-items: flex-end; margin-bottom: 40px;
+}
+.galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.galeria figure { margin: 0; border: 1px solid var(--linea-2); background: var(--fondo-2); }
+.galeria img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  filter: saturate(.92) contrast(1.02);
+}
+.galeria figcaption {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em;
+  color: var(--tinta-3); padding: 13px 16px; border-top: 1px solid var(--linea-2);
+  text-transform: uppercase;
+}
+
+/* ---------- formulario ----------
+   La seccion "Trabaja con nosotros" se saco el 2026-10-06; vuelve mas
+   adelante. Estos estilos quedan listos para cuando se reponga. */
+
+.caja {
+  border: 1px solid var(--linea-2); background: var(--fondo-2); padding: 32px;
+}
+.campo { margin-bottom: 20px; }
+.campo > label {
+  display: block; font-family: var(--mono); font-size: 10px;
+  letter-spacing: .16em; color: var(--tinta-3); margin-bottom: 8px; text-transform: uppercase;
+}
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"],
+.campo select,
+.campo textarea {
+  width: 100%; background: var(--fondo); color: var(--tinta);
+  border: 1px solid var(--linea-2); padding: 13px 14px;
+  font-family: inherit; font-size: 15px;
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none; border-color: var(--acento);
+}
+.campo textarea { min-height: 96px; resize: vertical; }
+
+.opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.opciones label {
+  position: relative; display: inline-block;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em;
+  border: 1px solid var(--linea-2); color: var(--tinta-2);
+  padding: 10px 15px; cursor: pointer; text-transform: uppercase;
+}
+/* el radio real queda invisible pero sigue existiendo para el teclado
+   y para los lectores de pantalla: nada de display:none */
+.opciones input {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  margin: 0; opacity: 0; cursor: pointer;
+}
+.opciones label:has(input:checked) {
+  background: var(--acento); border-color: var(--acento); color: var(--fondo);
+}
+.opciones label:has(input:focus-visible) { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+.aviso {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+  color: var(--tinta-3); line-height: 1.6; margin-top: 14px;
+}
+.aviso.error { color: #FF8A6B; }
+
+/* ---------- pie ---------- */
+
+.pie { background: var(--fondo-2); border-top: 1px solid var(--linea); }
+.pie .env { padding-top: 56px; padding-bottom: 40px; }
+.pie-fin {
+  border-top: 1px solid var(--linea); margin-top: 40px; padding-top: 24px;
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; color: var(--tinta-3);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .seccion > .env { padding-top: 56px; padding-bottom: 56px; }
+  .portada > .env { padding-top: 56px; }
+  .dos-col { gap: 40px; }
+  .cifras { grid-template-columns: 1fr 1fr; margin-top: 44px; }
+  .cifras > div { padding: 22px 18px 26px; }
+  .cifras > div:nth-child(odd) { padding-left: 0; }
+  .cifras > div:nth-child(even) { border-right: 0; padding-right: 0; }
+  .cifras > div:nth-child(n+3) { border-top: 1px solid var(--linea); }
+  .caja { padding: 22px; }
+
+  nav.menu {
+    position: fixed; inset: 69px 0 auto 0;
+    background: var(--fondo); border-bottom: 1px solid var(--linea);
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 8px 24px 24px;
+  }
+  nav.menu[hidden] { display: none; }
+  nav.menu a { padding: 14px 0; border-bottom: 1px solid var(--linea); font-size: 15px; }
+  nav.menu a.cta { margin-top: 18px; text-align: center; border: 1px solid var(--linea-3); }
+  .abrir-menu {
+    display: block; background: none; cursor: pointer;
+    border: 1px solid var(--linea-3); color: var(--tinta-2);
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    padding: 10px 14px; text-transform: uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

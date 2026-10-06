@@ -1,0 +1,14 @@
+# pruebas que deja el script de fotos
+herramientas/prueba-*.png
+
+# basura de Windows y de los editores
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# nunca subir originales de fotos sin recortar:
+# traen la barra del GPS con la direccion exacta
+herramientas/originales/

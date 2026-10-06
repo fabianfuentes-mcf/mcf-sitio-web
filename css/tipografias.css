@@ -1,0 +1,13 @@
+/* Archivo es fuente variable: los cinco pesos salen del mismo archivo.
+   Van servidas desde el propio sitio, no desde Google Fonts, para que
+   la pagina no dependa de un tercero ni filtre visitas. */
+
+@font-face { font-family:'Archivo'; font-style:normal; font-weight:400; font-display:swap; src:url(../fonts/archivo-65449f16.woff2) format('woff2'); }
+@font-face { font-family:'Archivo'; font-style:normal; font-weight:500; font-display:swap; src:url(../fonts/archivo-65449f16.woff2) format('woff2'); }
+@font-face { font-family:'Archivo'; font-style:normal; font-weight:600; font-display:swap; src:url(../fonts/archivo-65449f16.woff2) format('woff2'); }
+@font-face { font-family:'Archivo'; font-style:normal; font-weight:700; font-display:swap; src:url(../fonts/archivo-65449f16.woff2) format('woff2'); }
+@font-face { font-family:'Archivo'; font-style:normal; font-weight:800; font-display:swap; src:url(../fonts/archivo-65449f16.woff2) format('woff2'); }
+
+@font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:400; font-display:swap; src:url(../fonts/ibm-plex-mono-bb87500e.woff2) format('woff2'); }
+@font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:500; font-display:swap; src:url(../fonts/ibm-plex-mono-d32f0e07.woff2) format('woff2'); }
+@font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:600; font-display:swap; src:url(../fonts/ibm-plex-mono-ce9a5ca3.woff2) format('woff2'); }
