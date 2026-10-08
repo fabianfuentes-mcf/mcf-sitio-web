@@ -6,38 +6,19 @@ línea. No hay que tocar Vercel nunca más.
 
 ---
 
-## Primera vez (esto se hace una sola vez)
+## Ya está hecho (8 de octubre de 2026)
 
-### 1. Entrar a GitHub desde el computador
+| | |
+|---|---|
+| **En línea** | <https://mcf-sitio-web.vercel.app> |
+| GitHub | `fabianfuentes-mcf/mcf-sitio-web`, público |
+| Vercel | cuenta `fabianfuentes`, plan Hobby, proyecto `mcf-sitio-web` |
 
-```bash
-gh auth login
-```
+Los dos están conectados. No hay que volver a tocar Vercel.
 
-Elige **GitHub.com** → **HTTPS** → **sí** a autenticar git → **Login with a
-web browser**. Te da un código de ocho caracteres, lo pegas en el navegador y
-listo. Esto además deja las credenciales guardadas para los `push`.
-
-### 2. Crear el repositorio y subirlo
-
-Desde esta carpeta:
-
-```bash
-gh repo create mcf-sitio-web --public --source=. --remote=origin --push
-```
-
-Eso crea el repositorio en tu cuenta, lo conecta y sube el código.
-
-### 3. Conectar Vercel
-
-1. Entra a <https://vercel.com> y crea la cuenta **con GitHub**.
-2. **Add New → Project** → elige `mcf-sitio-web` → **Import**.
-3. No cambies nada: Framework **Other**, sin build, sin output directory.
-   Es un sitio estático, Vercel lo sirve tal cual.
-4. **Deploy**.
-
-Queda en una URL tipo `https://mcf-sitio-web.vercel.app`. Esa es la que se
-comparte para pedir opiniones.
+Si algún día hay que rehacer la conexión: `gh auth login`, después
+`gh repo create ... --source=. --push`, y en Vercel **Add New → Project →
+Import**, con Framework **Other** y sin build.
 
 ---
 
