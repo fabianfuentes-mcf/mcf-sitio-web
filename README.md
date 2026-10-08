@@ -4,7 +4,7 @@ Sitio estático de una página para una contratista chilena de fibra óptica y
 obra civil. Sin framework, sin build, sin dependencias: HTML, CSS y un
 archivo de JavaScript de treinta líneas para el menú del teléfono.
 
-**En línea:** pendiente
+**En línea:** https://mcf-sitio-web.vercel.app
 **Dominio definitivo:** `empresamcf.com`
 
 ## Cómo está armado
