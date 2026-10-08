@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCF Ingeniería y Construcción SpA — Propuesta acero</title>
+<meta name="description" content="Contratista de fibra óptica y obra civil. Diseño, construcción, certificación OTDR y carpeta de entrega. De Arica a Osorno.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../img/favicon.ico">
+<style>
+@font-face { font-family:'Archivo'; font-weight:400 800; font-display:swap; src:url(../../fonts/archivo-65449f16.woff2) format('woff2'); }
+
+:root{
+  --noche:#070B11; --noche-2:#0C121B; --vidrio:rgba(255,255,255,.045);
+  --borde:rgba(150,190,215,.14); --borde-2:rgba(150,190,215,.26);
+  --tinta:#EEF4F8; --tinta-2:#A9BCC9; --tinta-3:#6F8494;
+  --acero:#4E8DAE; --cian:#7FDCEC; --cian-2:#35BBD6;
+  --sans:'Archivo',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --r:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--tinta); font:400 17px/1.68 var(--sans);
+  background:
+    radial-gradient(900px 560px at 12% -6%, rgba(78,141,174,.26), transparent 62%),
+    radial-gradient(760px 520px at 92% 14%, rgba(53,187,214,.14), transparent 60%),
+    var(--noche);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--cian)}
+.env{max-width:1140px; margin:0 auto; padding:0 26px}
+
+/* ---------- barra ---------- */
+.barra{position:sticky; top:0; z-index:40; padding:14px 0; backdrop-filter:blur(14px); background:rgba(7,11,17,.72); border-bottom:1px solid var(--borde)}
+.barra .env{display:flex; align-items:center; justify-content:space-between; gap:20px}
+.marca{display:flex; align-items:center; gap:11px}
+.marca img{width:32px}
+.marca b{font:700 18px/1 var(--sans); letter-spacing:-.015em}
+.marca span{display:block; font:400 11px/1.5 var(--sans); color:var(--tinta-3)}
+.barra nav{display:flex; align-items:center; gap:8px}
+.barra nav a{
+  padding:9px 15px; border-radius:999px; text-decoration:none;
+  font:500 14.5px/1 var(--sans); color:var(--tinta-2);
+}
+.barra nav a:hover{background:var(--vidrio); color:var(--tinta)}
+.barra nav a.cta{
+  background:linear-gradient(135deg,var(--cian),var(--acero)); color:#06131A; font-weight:700;
+}
+@media (max-width:880px){ .barra nav a:not(.cta){display:none} }
+
+/* ---------- portada ---------- */
+.portada{padding:86px 0 10px; text-align:center}
+.insignia{
+  display:inline-flex; align-items:center; gap:9px; padding:7px 16px; border-radius:999px;
+  border:1px solid var(--borde-2); background:var(--vidrio);
+  font:500 12.5px/1 var(--sans); letter-spacing:.06em; color:var(--cian);
+}
+.insignia i{width:6px; height:6px; border-radius:50%; background:var(--cian); font-style:normal}
+h1{
+  font:800 clamp(38px,6vw,74px)/1.05 var(--sans); letter-spacing:-.035em;
+  margin:26px auto 0; max-width:15ch;
+  background:linear-gradient(180deg,#FFFFFF 18%, #9FC4D8 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.bajada{margin:24px auto 0; max-width:62ch; font-size:18.5px; color:var(--tinta-2)}
+.bajada b{color:var(--tinta); font-weight:600}
+.acciones{display:flex; gap:13px; justify-content:center; flex-wrap:wrap; margin-top:34px}
+.boton{
+  display:inline-block; padding:15px 28px; border-radius:999px; text-decoration:none;
+  font:700 15.5px/1 var(--sans); border:1px solid var(--borde-2); color:var(--tinta);
+  background:var(--vidrio); transition:transform .15s ease;
+}
+.boton:hover{transform:translateY(-2px)}
+.boton.lleno{
+  border-color:transparent; color:#06131A;
+  background:linear-gradient(135deg,var(--cian),var(--acero));
+  box-shadow:0 14px 34px rgba(53,187,214,.26);
+}
+
+/* ---------- foto grande redondeada ---------- */
+.escena{margin:54px auto 0; max-width:1140px; padding:0 26px}
+.escena div{
+  position:relative; border-radius:28px; overflow:hidden;
+  border:1px solid var(--borde-2); box-shadow:0 40px 90px rgba(0,0,0,.55);
+}
+.escena img{width:100%; aspect-ratio:16/7; object-fit:cover; filter:saturate(.9) contrast(1.04)}
+.escena div::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(7,11,17,0) 42%, rgba(7,11,17,.86) 100%);
+}
+.escena p{
+  position:absolute; left:28px; bottom:22px; z-index:2; margin:0;
+  font:500 14px/1.5 var(--sans); color:var(--tinta-2);
+}
+
+/* ---------- cifras en pildoras ---------- */
+.cifras{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:26px}
+.cifras div{
+  background:var(--vidrio); border:1px solid var(--borde); border-radius:var(--r);
+  padding:26px 24px; text-align:left;
+}
+.cifras b{display:block; font:800 40px/1 var(--sans); letter-spacing:-.03em}
+.cifras .cn{background:linear-gradient(135deg,var(--cian),var(--acero)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.cifras small{display:block; margin-top:8px; font-size:13.5px; color:var(--tinta-3); line-height:1.5}
+@media (max-width:860px){ .cifras{grid-template-columns:1fr 1fr} }
+
+/* ---------- bloques ---------- */
+section.bloque{padding:84px 0}
+.rotulo{
+  display:inline-block; padding:6px 14px; border-radius:999px; background:var(--vidrio);
+  border:1px solid var(--borde); font:600 11.5px/1 var(--sans); letter-spacing:.14em;
+  text-transform:uppercase; color:var(--cian); margin-bottom:20px;
+}
+h2{font:700 clamp(27px,3.6vw,42px)/1.14 var(--sans); letter-spacing:-.03em; margin:0 0 18px; max-width:20ch}
+.intro{color:var(--tinta-2); max-width:62ch; margin:0 0 34px; font-size:17.5px}
+.centro{text-align:center}
+.centro h2,.centro .intro{margin-left:auto; margin-right:auto}
+
+/* tarjetas redondeadas */
+.tarjetas{display:grid; gap:16px; grid-template-columns:repeat(3,1fr)}
+.tarjetas.dos{grid-template-columns:repeat(2,1fr)}
+.tarjeta{
+  background:var(--vidrio); border:1px solid var(--borde); border-radius:var(--r);
+  padding:28px 26px; transition:border-color .18s ease, transform .18s ease;
+}
+.tarjeta:hover{border-color:var(--borde-2); transform:translateY(-3px)}
+.tarjeta .rama{display:block; font:600 11.5px/1 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--acero); margin-bottom:11px}
+.tarjeta h3{margin:0 0 9px; font:700 19px/1.35 var(--sans); letter-spacing:-.01em}
+.tarjeta p{margin:0; color:var(--tinta-2); font-size:15.5px}
+.tarjeta .fecha{display:inline-block; margin-top:14px; padding:5px 12px; border-radius:999px; background:rgba(127,220,236,.1); color:var(--cian); font:600 12px/1 var(--sans)}
+@media (max-width:900px){ .tarjetas,.tarjetas.dos{grid-template-columns:1fr} }
+
+/* lista con viñeta circular */
+.puntos{list-style:none; margin:0; padding:0; display:grid; gap:14px}
+.puntos li{display:flex; gap:14px; align-items:flex-start; color:var(--tinta-2); font-size:16px}
+.puntos li::before{
+  content:''; flex:none; width:22px; height:22px; margin-top:3px; border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, var(--cian) 0 4px, transparent 5px),
+             linear-gradient(135deg, rgba(127,220,236,.22), rgba(78,141,174,.08));
+  border:1px solid var(--borde-2);
+}
+
+/* galeria redondeada */
+.galeria{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.galeria figure{margin:0; border-radius:var(--r); overflow:hidden; border:1px solid var(--borde); background:var(--noche-2)}
+.galeria img{width:100%; aspect-ratio:4/3; object-fit:cover; filter:saturate(.92)}
+.galeria figcaption{padding:14px 18px; font:500 13px/1.5 var(--sans); color:var(--tinta-3)}
+@media (max-width:900px){ .galeria{grid-template-columns:1fr 1fr} }
+@media (max-width:620px){ .galeria{grid-template-columns:1fr} }
+
+/* cobertura en pildoras */
+.mapa{display:flex; flex-wrap:wrap; gap:11px; justify-content:center}
+.mapa span{
+  padding:11px 20px; border-radius:999px; border:1px solid var(--borde);
+  background:var(--vidrio); font-size:15px; color:var(--tinta-2);
+}
+.mapa span b{color:var(--tinta); font-weight:700}
+.mapa span.fuerte{border-color:var(--cian-2); color:var(--cian)}
+
+/* equipo */
+.gente{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.gente div{background:var(--vidrio); border:1px solid var(--borde); border-radius:var(--r); padding:24px}
+.gente .rol{display:block; font:600 11.5px/1 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--acero)}
+.gente b{display:block; margin:9px 0 6px; font:700 17.5px/1.3 var(--sans)}
+.gente p{margin:0; color:var(--tinta-2); font-size:14.5px}
+@media (max-width:900px){ .gente{grid-template-columns:1fr} }
+
+/* cierre */
+.cierre{
+  margin:40px auto 70px; max-width:1140px; padding:58px 44px; border-radius:30px;
+  border:1px solid var(--borde-2); text-align:center;
+  background:
+    radial-gradient(640px 320px at 50% 0%, rgba(53,187,214,.17), transparent 68%),
+    var(--noche-2);
+}
+.contactos{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px}
+.contactos a{
+  padding:13px 22px; border-radius:999px; border:1px solid var(--borde);
+  background:var(--vidrio); text-decoration:none; color:var(--tinta); font-size:15px;
+}
+.contactos a:hover{border-color:var(--borde-2)}
+.pie{padding:0 0 34px; text-align:center; font-size:13px; color:var(--tinta-3)}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="env">
+    <div class="marca">
+      <picture><source srcset="../../img/mcf-simbolo.webp" type="image/webp"><img src="../../img/mcf-simbolo.png" alt="" width="32"></picture>
+      <div><b>MCF</b><span>Ingeniería y Construcción</span></div>
+    </div>
+    <nav>
+      <a href="#referencias">Referencias</a>
+      <a href="#obras">Obras</a>
+      <a href="#capacidad">Capacidad</a>
+      <a class="cta" href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<section class="portada">
+  <div class="env">
+    <span class="insignia"><i></i>Siete cuadrillas operativas · de Arica a Osorno</span>
+    <h1>Fibra óptica y obra civil, con la misma empresa.</h1>
+    <p class="bajada"><b>Somos la contratista que ejecuta en terreno.</b> Trabajamos para operadores y contratistas principales que necesitan cuadrillas propias. El proyecto llega cerrado: construido, certificado con OTDR, con as-built y carpeta lista para presentar.</p>
+    <div class="acciones">
+      <a class="boton lleno" href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">Escríbenos por WhatsApp</a>
+      <a class="boton" href="#obras">Ver obras ejecutadas</a>
+    </div>
+  </div>
+</section>
+
+<div class="escena">
+  <div>
+    <picture><source srcset="../../img/obra/elevador.webp" type="image/webp"><img src="../../img/obra/elevador.jpg" width="1000" height="750" alt="Elevador tijera posicionado en un pasaje angosto, con conos delimitando la zona de trabajo."></picture>
+    <p>Elevador en pasaje angosto · Región Metropolitana</p>
+  </div>
+</div>
+
+<div class="env">
+  <div class="cifras">
+    <div><b>880</b><small>Proyectos entregados y aprobados</small></div>
+    <div><b>6</b><small>Regiones con obra ejecutada</small></div>
+    <div><b class="cn">98%</b><small>Aprobación de lo presentado a revisión</small></div>
+    <div><b>4</b><small>Mandantes sobre dos redes distintas</small></div>
+  </div>
+</div>
+
+<section class="bloque centro" id="referencias">
+  <div class="env">
+    <span class="rotulo">Referencias</span>
+    <h2>Dos redes, cuatro mandantes, dos años seguidos.</h2>
+    <p class="intro">Podemos entregar contactos de supervisión y coordinación de cualquiera de los cuatro.</p>
+    <div class="tarjetas dos" style="text-align:left">
+      <div class="tarjeta">
+        <span class="rama">Red OnNet Fibra</span>
+        <h3>Dominion</h3>
+        <p>557 proyectos en Región Metropolitana y Valparaíso. Somos su subcontratista de mayor volumen.</p>
+        <span class="fecha">Ene 2025 — Ago 2026</span>
+      </div>
+      <div class="tarjeta">
+        <span class="rama">Red OnNet Fibra</span>
+        <h3>Zener Austral</h3>
+        <p>323 proyectos. Construcción, certificación y as-built bajo estándar OnNet.</p>
+        <span class="fecha">Abr 2024 — Jul 2026</span>
+      </div>
+      <div class="tarjeta">
+        <span class="rama">Red Movistar</span>
+        <h3>ATP Fiber Chile</h3>
+        <p>Cuatro cuadrillas fijas en Arica y Antofagasta: producción por zona, verticales, reparaciones y auditorías.</p>
+        <span class="fecha">Dic 2024 — Ago 2025</span>
+      </div>
+      <div class="tarjeta">
+        <span class="rama">Red OnNet Fibra</span>
+        <h3>TRAZA</h3>
+        <p>Mandante nuevo. Proyectos de despliegue, AF y SIF.</p>
+        <span class="fecha">Desde Ago 2026</span>
+      </div>
+    </div>
+    <p class="intro" style="margin:34px auto 0">ATP Fiber responde las dos preguntas que hace todo mandante nuevo: si sabemos entrar a una red que no conocíamos —llegamos a la de Movistar sin conocerla y sostuvimos producción nueve meses— y si sabemos operar lejos de la base, moviendo cuadrillas completas al norte con vuelos, estadía y relevos programados por nosotros.</p>
+  </div>
+</section>
+
+<section class="bloque centro" id="obras">
+  <div class="env">
+    <span class="rotulo">Obras</span>
+    <h2>Registro de terreno.</h2>
+    <p class="intro">Fotografías de proyectos ejecutados en Arica, Concón, Quillota, Santiago, Providencia y San Miguel.</p>
+    <div class="galeria">
+      <figure><picture><source srcset="../../img/obra/poste-arica.webp" type="image/webp"><img src="../../img/obra/poste-arica.jpg" width="1000" height="750" alt="Técnico trabajando sobre una escala apoyada en un poste de distribución, en una calle de Arica."></picture><figcaption>Trabajo en poste, Arica</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/tendido-altura.webp" type="image/webp"><img src="../../img/obra/tendido-altura.jpg" width="1000" height="750" alt="Técnico sobre una escala manipulando una reserva de cable de fibra óptica."></picture><figcaption>Reserva de cable en altura</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/empalme.webp" type="image/webp"><img src="../../img/obra/empalme.jpg" width="1280" height="638" alt="Bandeja de empalme abierta con las fibras ordenadas y rotuladas."></picture><figcaption>Fusión en terreno</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/cto-pared.webp" type="image/webp"><img src="../../img/obra/cto-pared.jpg" width="1000" height="750" alt="CTO montada en fachada y abierta, con la bandeja de empalme y el splitter rotulados."></picture><figcaption>CTO montada en fachada</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/fotometro.webp" type="image/webp"><img src="../../img/obra/fotometro.jpg" width="1000" height="750" alt="Medición de potencia óptica con fotómetro sobre una mufa de paso abierta."></picture><figcaption>Medición de potencia óptica</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/arnes.webp" type="image/webp"><img src="../../img/obra/arnes.jpg" width="1000" height="750" alt="Técnico con casco, chaleco reflectante y arnés de cuerpo completo."></picture><figcaption>Equipo de protección completo</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" id="servicios">
+  <div class="env">
+    <span class="rotulo">Servicios</span>
+    <h2>Del diseño hasta la carpeta de entrega.</h2>
+    <div class="tarjetas">
+      <div class="tarjeta"><span class="rama">Diseño</span><h3>Ingeniería de proyecto</h3><p>Reconocimiento de ruta, trazado y planos para construir.</p></div>
+      <div class="tarjeta"><span class="rama">Construcción</span><h3>Redes AF y SIF</h3><p>Tendido aéreo y subterráneo, herrajes, cámaras y postación.</p></div>
+      <div class="tarjeta"><span class="rama">Construcción</span><h3>Línea para fibra óptica</h3><p>Troncal, correteo, mufas con sus splitters adentro, y cajas terminales.</p></div>
+      <div class="tarjeta"><span class="rama">Certificación</span><h3>Empalme y medición OTDR</h3><p>Fusionadora Sumitomo T-56 y OTDR Viavi propios en cada cuadrilla.</p></div>
+      <div class="tarjeta"><span class="rama">Documentación</span><h3>As-built y carpeta</h3><p>Plano del ejecutado, trazas, registro fotográfico y checklist.</p></div>
+      <div class="tarjeta"><span class="rama">Obras civiles</span><h3>Excavación y reposición</h3><p>Ductos, cámaras, ruptura y reposición de hormigón, asfalto y baldosa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" id="capacidad">
+  <div class="env">
+    <span class="rotulo">Capacidad</span>
+    <h2>Equipamiento propio en cada cuadrilla.</h2>
+    <p class="intro">No arrendamos equipos críticos ni dependemos de terceros para medir. Cada cuadrilla sale a terreno autónoma, con su vehículo, sus instrumentos y sus elementos de protección.</p>
+    <div class="tarjetas dos">
+      <div class="tarjeta">
+        <h3 style="margin-bottom:16px">Lo que lleva cada cuadrilla</h3>
+        <ul class="puntos">
+          <li>Fusionadora Sumitomo T-56, una por cuadrilla</li>
+          <li>OTDR Viavi, para certificar en el mismo turno</li>
+          <li>Camioneta, escalas con gancho y cuerdas anticaídas</li>
+          <li>Arnés dieléctrico y ropa ignífuga para todo el personal</li>
+        </ul>
+      </div>
+      <div class="tarjeta">
+        <h3 style="margin-bottom:16px">La operación hoy</h3>
+        <ul class="puntos">
+          <li>23 personas en siete cuadrillas, con base en Huechuraba</li>
+          <li>Seis cuadrillas de fusión y una de línea</li>
+          <li>Entre 12 y 30 proyectos por mes</li>
+          <li>Contrato directo con MCF, cotizaciones al día</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque centro" id="cobertura">
+  <div class="env">
+    <span class="rotulo">Cobertura</span>
+    <h2>Base en Santiago, experiencia de Arica a Osorno.</h2>
+    <p class="intro">Al norte no fuimos de paso: entre diciembre de 2024 y agosto de 2025 mantuvimos cuadrillas fijas en Arica y Antofagasta, con los vuelos, la estadía y los relevos programados por nosotros. Mover una cuadrilla completa fuera de Santiago ya lo tenemos resuelto.</p>
+    <div class="mapa">
+      <span class="fuerte"><b>Arica</b> · cuadrilla fija 2024–2025</span>
+      <span class="fuerte"><b>Antofagasta</b> · cuadrilla fija 2024–2025</span>
+      <span><b>Valparaíso</b> · operación permanente</span>
+      <span><b>Región Metropolitana</b> · operación permanente</span>
+      <span><b>Talca</b> · obra ejecutada</span>
+      <span><b>Osorno</b> · obra ejecutada</span>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" id="calidad">
+  <div class="env">
+    <span class="rotulo">Calidad</span>
+    <h2>Una revisión propia antes de que la haga el cliente.</h2>
+    <p class="intro">Tenemos una jefa de calidad dedicada, que no depende de las cuadrillas. Su único trabajo es que el proyecto llegue completo y correcto a revisión del mandante. Si aparece una observación de terreno, la repara la misma cuadrilla que ejecutó, y el retrabajo lo paga MCF.</p>
+    <div class="tarjetas">
+      <div class="tarjeta"><h3>Checklist por ID</h3><p>Revisado por calidad antes de presentar, no por la cuadrilla que ejecutó.</p></div>
+      <div class="tarjeta"><h3>Trazas verificadas una a una</h3><p>Nada se presenta sin su medición OTDR respaldada en PDF.</p></div>
+      <div class="tarjeta"><h3>As-built contrastado</h3><p>Se levanta durante la obra, no después de terminarla.</p></div>
+      <div class="tarjeta"><h3>Homologación aprobada</h3><p>Ya pasamos una homologación completa como proveedor. La carpeta está armada.</p></div>
+      <div class="tarjeta"><h3>Prevención con asesor externo</h3><p>Visitas a faena, levantamiento de hallazgos y capacitaciones mutual y OTEC.</p></div>
+      <div class="tarjeta"><h3>Software propio de as-built</h3><p>Lee el DWG, reconoce mufas, cajas, splitters y cables, y arma la planilla sola.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" id="equipo">
+  <div class="env">
+    <span class="rotulo">Equipo</span>
+    <h2>Quién responde por cada cosa.</h2>
+    <div class="gente">
+      <div><span class="rol">Gerente general</span><b>Fabián Fuentes Sepúlveda</b><p>Relación con mandantes, planificación y control de proyectos.</p></div>
+      <div><span class="rol">Gerente de operaciones</span><b>Marco Carrasco Fuentes</b><p>Terreno, as-built y flota.</p></div>
+      <div><span class="rol">Representante legal</span><b>Jessica Galaz Gavilán</b><p>Representación y administración societaria.</p></div>
+      <div><span class="rol">Jefatura de calidad</span><b>Tamara Sánchez</b><p>Checklist, fotografías y certificaciones antes de presentar.</p></div>
+      <div><span class="rol">Supervisión</span><b>Esteban Olivares</b><p>Avance diario, coordinación de cuadrillas y permisos.</p></div>
+      <div><span class="rol">Prevención de riesgos</span><b>Melissa Santiesteban</b><p>Visitas a faena, capacitación y documentación.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cierre" id="contacto">
+  <span class="rotulo">Contacto</span>
+  <h2 style="margin-left:auto;margin-right:auto">Partimos con lo que podemos sostener.</h2>
+  <p class="intro" style="margin-left:auto;margin-right:auto">No ofrecemos capacidad que todavía no tenemos. Abrimos acotado con dos o tres cuadrillas híbridas, mostramos el estándar en obra, y escalamos hasta siete sin pasarle el trabajo a terceros.</p>
+  <div class="acciones">
+    <a class="boton lleno" href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">Escríbenos por WhatsApp</a>
+  </div>
+  <div class="contactos">
+    <a href="mailto:fabian.fuentes@empresamcf.com">fabian.fuentes@empresamcf.com</a>
+    <a href="mailto:marco.carrasco@empresamcf.com">marco.carrasco@empresamcf.com</a>
+    <a href="https://wa.me/56959312452" rel="noopener">+56 9 5931 2452</a>
+  </div>
+  <p style="margin:26px 0 0; font-size:14px; color:var(--tinta-3)">Carlos Aguirre Luco 1115, Huechuraba, Santiago</p>
+</section>
+
+<footer class="pie">
+  MCF Ingeniería y Construcción SpA · RUT 77.952.887-1 · Propuesta de diseño — versión acero
+</footer>
+
+</body>
+</html>

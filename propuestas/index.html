@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCF — Tres propuestas de diseño</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../img/favicon.ico">
+<style>
+@font-face { font-family:'Archivo'; font-weight:400 800; font-display:swap; src:url(../fonts/archivo-65449f16.woff2) format('woff2'); }
+@font-face { font-family:'Plex Mono'; font-weight:400; font-display:swap; src:url(../fonts/ibm-plex-mono-bb87500e.woff2) format('woff2'); }
+*{box-sizing:border-box}
+body{
+  margin:0; background:#0B0B0C; color:#F4F3F0;
+  font:400 17px/1.7 'Archivo',-apple-system,'Segoe UI',Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.env{max-width:960px; margin:0 auto; padding:56px 24px 80px}
+h1{font:800 clamp(30px,5vw,46px)/1.1 inherit; letter-spacing:-.03em; margin:0 0 16px}
+.sub{color:#A3A39E; max-width:56ch; margin:0 0 14px}
+.nota{
+  font:400 13.5px/1.7 'Plex Mono',ui-monospace,Menlo,monospace; color:#8A8A85;
+  border-left:2px solid #35BBD6; padding:10px 0 10px 16px; margin:26px 0 42px; max-width:62ch;
+}
+.lista{display:grid; gap:18px}
+.op{
+  display:block; text-decoration:none; color:inherit; padding:26px 28px;
+  border:1px solid #26262A; background:#121214;
+}
+.op:hover{border-color:#35BBD6}
+.op .et{font:400 11px/1 'Plex Mono',monospace; letter-spacing:.16em; text-transform:uppercase; color:#35BBD6}
+.op h2{margin:12px 0 8px; font:800 25px/1.2 inherit; letter-spacing:-.02em}
+.op p{margin:0; color:#A3A39E; font-size:15.5px; max-width:60ch}
+.muestra{display:flex; gap:7px; margin-top:18px}
+.muestra i{width:30px; height:30px; display:block; border:1px solid rgba(255,255,255,.12)}
+.pie{margin-top:46px; padding-top:22px; border-top:1px solid #26262A; font-size:14.5px; color:#8A8A85}
+.pie a{color:#35BBD6}
+</style>
+</head>
+<body>
+<div class="env">
+  <h1>Tres propuestas, tres caminos distintos.</h1>
+  <p class="sub">Mismo contenido y mismas fotos en las tres. Lo que cambia es el color, la tipografía y, sobre todo, la forma de ordenar la página.</p>
+  <p class="nota">Ábrelas en el teléfono, no solo en el computador. La mitad de quien entre a la web de una contratista lo va a hacer desde el celular, y ahí se nota de verdad cuál funciona.</p>
+
+  <div class="lista">
+    <a class="op" href="clara/">
+      <span class="et">Propuesta 1 · fondo claro</span>
+      <h2>Clara</h2>
+      <p>Blanco, tipografía con serifa y aire. Las referencias van en una tabla, como un informe. Sin recuadros ni tarjetas: solo líneas finas y texto. Es la más sobria y la que menos se parece a una web de agencia.</p>
+      <span class="muestra">
+        <i style="background:#FFFFFF"></i><i style="background:#F6F5F1"></i><i style="background:#0E5A74"></i><i style="background:#17191D"></i>
+      </span>
+    </a>
+
+    <a class="op" href="acero/">
+      <span class="et">Propuesta 2 · fondo oscuro</span>
+      <h2>Acero</h2>
+      <p>Azul metálico sobre negro, con brillos suaves y todo redondeado: botones de píldora, tarjetas con esquinas curvas, foto grande de apertura. Es la respuesta directa a lo de "muy cuadrado". Centrada, moderna, se lee rápido.</p>
+      <span class="muestra">
+        <i style="background:#070B11"></i><i style="background:#0C121B"></i><i style="background:#4E8DAE"></i><i style="background:#7FDCEC"></i>
+      </span>
+    </a>
+
+    <a class="op" href="faena/">
+      <span class="et">Propuesta 3 · fondo oscuro</span>
+      <h2>Faena</h2>
+      <p>Azul acero sobre negro, pero al revés que la anterior: menú fijo a la izquierda, contenido a la derecha, fotos a sangre completa cruzando la pantalla y un mosaico irregular de obra. Se parece a un dossier de proyecto más que a una web.</p>
+      <span class="muestra">
+        <i style="background:#06090D"></i><i style="background:#0A1017"></i><i style="background:#5B8FA8"></i><i style="background:#35BBD6"></i>
+      </span>
+    </a>
+  </div>
+
+  <p class="pie">La versión que está hoy en línea sigue en <a href="../">la portada</a>, con los ajustes que pidió la comunidad: botón de WhatsApp, a quién le habla el sitio, y las referencias y fotos subidas al principio.</p>
+</div>
+</body>
+</html>
