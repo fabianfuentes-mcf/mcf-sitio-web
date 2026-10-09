@@ -69,11 +69,21 @@ h1 em{font-style:italic; color:var(--azul)}
 .boton:hover{background:var(--azul-cl); border-color:var(--azul-cl); color:#fff}
 
 /* ---------- foto de apertura ---------- */
-.apertura{margin:64px 0 0}
-.apertura img{width:100%; aspect-ratio:21/9; object-fit:cover}
+.apertura{
+  margin:64px auto 0; max-width:1120px; padding:0 28px;
+  display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+  gap:46px; align-items:end;
+}
+/* la foto va completa: sin object-fit y sin aspect-ratio, manda su propia forma */
+.apertura img{display:block; width:100%; height:auto}
 .apertura figcaption{
-  font:400 13px/1.6 var(--serif); font-style:italic; color:var(--tinta-3);
-  padding:12px 0 0; max-width:1120px; margin:0 auto;
+  font:400 15.5px/1.75 var(--serif); font-style:italic; color:var(--tinta-2);
+  margin:0; padding:0 0 10px 20px; border-left:2px solid var(--azul);
+}
+.apertura figcaption b{font-style:normal; font-weight:600; color:var(--tinta)}
+@media (max-width:860px){
+  .apertura{grid-template-columns:1fr; gap:22px; align-items:start; padding:0 22px}
+  .apertura figcaption{padding-bottom:0}
 }
 
 /* ---------- cifras ---------- */
@@ -103,6 +113,30 @@ h2{font:400 clamp(28px,3.4vw,40px)/1.18 var(--serif); letter-spacing:-.015em; ma
 .lista h3{margin:0; font:600 16px/1.4 var(--sans)}
 .lista .rama{display:block; font:400 10.5px/1.6 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--azul); margin-bottom:4px}
 .lista p{margin:0; color:var(--tinta-2); font-size:15.5px}
+
+/* pasos del metodo: filas numeradas, sin tarjetas */
+.pasos{list-style:none; margin:0; padding:0; counter-reset:q}
+.pasos li{
+  counter-increment:q; padding:17px 0; border-top:1px solid var(--linea);
+  display:grid; grid-template-columns:58px .8fr 1.4fr; gap:24px; align-items:baseline;
+}
+.pasos li:last-child{border-bottom:1px solid var(--linea)}
+.pasos li::before{
+  content:counter(q,decimal-leading-zero);
+  font:400 12px/1.6 var(--mono); color:var(--azul); letter-spacing:.06em;
+}
+.pasos b{font:600 16px/1.4 var(--sans)}
+.pasos span{color:var(--tinta-2); font-size:15.5px}
+@media (max-width:760px){
+  .pasos li{grid-template-columns:40px 1fr; gap:4px 16px}
+  .pasos span{grid-column:2}
+}
+
+/* lo que resuelve el software: vinetas con guion, sin bolitas */
+.gana{list-style:none; margin:26px 0 0; padding:0}
+.gana li{padding:13px 0; border-top:1px solid var(--linea); color:var(--tinta-2); font-size:15.5px; padding-left:22px; position:relative}
+.gana li::before{content:'—'; position:absolute; left:0; color:var(--azul)}
+.gana li:last-child{border-bottom:1px solid var(--linea)}
 @media (max-width:760px){ .lista li{grid-template-columns:1fr; gap:6px} }
 
 /* referencias como tabla editorial */
@@ -183,7 +217,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
 <header class="masthead">
   <div class="env">
     <div class="marca">
-      <picture><source srcset="../../img/mcf-simbolo.webp" type="image/webp"><img src="../../img/mcf-simbolo.png" alt="" width="34"></picture>
+      <img src="../../img/mcf-simbolo.svg" alt="" width="34" height="30">
       <div><b>MCF</b><span>Ingeniería y Construcción</span></div>
     </div>
     <nav>
@@ -213,9 +247,11 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
         <li><a href="#referencias">Mandantes y referencias</a></li>
         <li><a href="#obras">Registro de obra</a></li>
         <li><a href="#servicios">Lo que hacemos</a></li>
+        <li><a href="#metodo">Cómo trabajamos</a></li>
         <li><a href="#capacidad">Capacidad operativa</a></li>
         <li><a href="#cobertura">Dónde hemos trabajado</a></li>
         <li><a href="#calidad">Calidad y cumplimiento</a></li>
+        <li><a href="#software">Desarrollo propio</a></li>
         <li><a href="#equipo">Quién responde</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ol>
@@ -224,11 +260,11 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
 
   <figure class="apertura">
     <picture>
-      <source srcset="../../img/obra/poste-arica.webp" type="image/webp">
-      <img src="../../img/obra/poste-arica.jpg" width="1000" height="750"
-           alt="Técnico de MCF trabajando sobre una escala apoyada en un poste de distribución, en una calle de Arica.">
+      <source srcset="../../img/obra/alzahombre.webp" type="image/webp">
+      <img src="../../img/obra/alzahombre.jpg" width="1200" height="1600"
+           alt="Dos técnicos de MCF trabajando desde un alzahombre Genie GS-1930 en la fachada de un edificio, con la zona delimitada por conos.">
     </picture>
-    <figcaption>Cuadrilla de MCF en Arica. Entre diciembre de 2024 y agosto de 2025 mantuvimos cuadrillas fijas en el norte.</figcaption>
+    <figcaption><b>Alzahombre en pasaje angosto.</b> Trabajo en altura con plataforma certificada, arnés y la zona delimitada con conos. Cuando el acceso no da para escala, la cuadrilla entra igual.</figcaption>
   </figure>
 
   <div class="env">
@@ -274,11 +310,11 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
         <picture><source srcset="../../img/obra/postacion.webp" type="image/webp"><img src="../../img/obra/postacion.jpg" width="720" height="1002" alt="Postación compartida con múltiples cables y herrajes en Concón."></picture>
         <figcaption>Postación compartida, Concón. Región de Valparaíso.</figcaption>
       </figure>
-      <figure><picture><source srcset="../../img/obra/escala-arica.webp" type="image/webp"><img src="../../img/obra/escala-arica.jpg" width="1000" height="750" alt="Técnico de MCF sobre una escala tendiendo cable aéreo en una calle de Arica, con el Morro al fondo."></picture><figcaption>Tendido aéreo, Arica.</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/poste-arica.webp" type="image/webp"><img src="../../img/obra/poste-arica.jpg" width="1200" height="800" alt="Técnico de MCF sobre una escala, trabajando el cableado de un poste de distribución en una calle de Arica."></picture><figcaption>Tendido aéreo, Arica.</figcaption></figure>
       <figure><picture><source srcset="../../img/obra/empalme.webp" type="image/webp"><img src="../../img/obra/empalme.jpg" width="1280" height="638" alt="Bandeja de empalme abierta con las fibras ordenadas y rotuladas."></picture><figcaption>Fusión en terreno, bandeja rotulada.</figcaption></figure>
       <figure><picture><source srcset="../../img/obra/otdr.webp" type="image/webp"><img src="../../img/obra/otdr.jpg" width="880" height="874" alt="Pantalla del OTDR mostrando la traza del enlace medido."></picture><figcaption>Certificación OTDR en el mismo turno.</figcaption></figure>
       <figure><picture><source srcset="../../img/obra/cto-pared.webp" type="image/webp"><img src="../../img/obra/cto-pared.jpg" width="1000" height="750" alt="CTO montada en fachada y abierta, con la bandeja de empalme y el splitter rotulados."></picture><figcaption>CTO montada y rotulada.</figcaption></figure>
-      <figure><picture><source srcset="../../img/obra/elevador.webp" type="image/webp"><img src="../../img/obra/elevador.jpg" width="1000" height="750" alt="Elevador tijera posicionado en un pasaje angosto, con conos delimitando la zona."></picture><figcaption>Elevador en pasaje angosto.</figcaption></figure>
+      <figure><picture><source srcset="../../img/obra/fotometro.webp" type="image/webp"><img src="../../img/obra/fotometro.jpg" width="1000" height="750" alt="Medición de potencia óptica con fotómetro sobre una mufa de paso abierta en cámara subterránea."></picture><figcaption>Medición de potencia óptica.</figcaption></figure>
       <figure><picture><source srcset="../../img/obra/arnes.webp" type="image/webp"><img src="../../img/obra/arnes.jpg" width="1000" height="750" alt="Técnico con casco, chaleco reflectante y arnés de cuerpo completo."></picture><figcaption>Arnés dieléctrico y ropa ignífuga.</figcaption></figure>
     </div>
   </div>
@@ -299,8 +335,29 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
   </div>
 </article>
 
+<article id="metodo">
+  <div class="cab"><span class="num">Cuatro</span><h2>Un solo responsable, de la ruta a la carpeta.</h2></div>
+  <div class="cuerpo">
+    <span class="num">Método</span>
+    <div>
+      <div class="texto">
+        <p>La misma cuadrilla que construye es la que certifica. No mandamos el proyecto a un tercero para medir, ni para dibujar el plano, ni para armar la carpeta.</p>
+        <p>Eso quita las esperas entre etapas y deja una sola persona a la que preguntarle por cada ID.</p>
+      </div>
+      <ul class="pasos" style="margin-top:30px">
+        <li><b>Diseño</b><span>Reconocimiento de ruta y planos para construir.</span></li>
+        <li><b>Construcción</b><span>Dos días los proyectos chicos; diez a quince los grandes.</span></li>
+        <li><b>Certificación</b><span>OTDR en terreno, uno a tres días, con la misma cuadrilla.</span></li>
+        <li><b>As-built</b><span>Se levanta durante la obra, no después de terminarla.</span></li>
+        <li><b>Checklist</b><span>Revisión interna dedicada antes de presentar.</span></li>
+        <li><b>Entrega</b><span>Carpeta completa por ID, lista para revisión.</span></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
 <article id="capacidad">
-  <div class="cab"><span class="num">Cuatro</span><h2>Equipamiento propio en cada cuadrilla.</h2></div>
+  <div class="cab"><span class="num">Cinco</span><h2>Equipamiento propio en cada cuadrilla.</h2></div>
   <div class="cuerpo">
     <span class="num">Capacidad</span>
     <div>
@@ -319,7 +376,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
 </article>
 
 <article id="cobertura">
-  <div class="cab"><span class="num">Cinco</span><h2>Base en Santiago, experiencia de Arica a Osorno.</h2></div>
+  <div class="cab"><span class="num">Seis</span><h2>Base en Santiago, experiencia de Arica a Osorno.</h2></div>
   <div class="cuerpo">
     <span class="num">Cobertura</span>
     <div>
@@ -340,7 +397,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
 </article>
 
 <article id="calidad">
-  <div class="cab"><span class="num">Seis</span><h2>Una revisión propia antes de que la haga el cliente.</h2></div>
+  <div class="cab"><span class="num">Siete</span><h2>Una revisión propia antes de que la haga el cliente.</h2></div>
   <div class="cuerpo">
     <span class="num">Calidad</span>
     <div>
@@ -359,8 +416,27 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
   </div>
 </article>
 
+<article id="software">
+  <div class="cab"><span class="num">Ocho</span><h2>Leemos el as-built con software nuestro.</h2></div>
+  <div class="cuerpo">
+    <span class="num">Desarrollo propio</span>
+    <div>
+      <div class="texto">
+        <p>Lo más lento de cerrar un proyecto es pasar el plano a la planilla de entrega a mano, elemento por elemento.</p>
+        <p>Escribimos un programa que abre el DWG, reconoce mufas, cajas, splitters y cables, y arma la planilla solo. Corre contra proyectos ya entregados y aprobados, y lo ajustamos cada vez que aparece un caso nuevo.</p>
+      </div>
+      <ul class="gana">
+        <li>La planilla sale del plano y no de una copia a mano: se acaban los errores de digitación.</li>
+        <li>Cada línea queda referida a un elemento dibujado, auditable contra el plano.</li>
+        <li>El cierre deja de depender de cuánto demore alguien tipeando.</li>
+        <li>El mismo criterio de conteo en todos los proyectos, aunque cambie la cuadrilla.</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
 <article id="equipo">
-  <div class="cab"><span class="num">Siete</span><h2>Quién responde por cada cosa.</h2></div>
+  <div class="cab"><span class="num">Nueve</span><h2>Quién responde por cada cosa.</h2></div>
   <div class="cuerpo">
     <span class="num">Equipo</span>
     <div class="equipo">
@@ -381,7 +457,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
     <div>
       <p class="kicker">Contacto</p>
       <h2 style="margin-bottom:22px">Partimos con lo que podemos sostener.</h2>
-      <p style="color:var(--tinta-2); max-width:34em; margin:0 0 28px">No ofrecemos capacidad que todavía no tenemos. Abrimos acotado con dos o tres cuadrillas híbridas, mostramos el estándar en obra, y escalamos hasta siete sin pasarle el trabajo a terceros.</p>
+      <p style="color:var(--tinta-2); max-width:34em; margin:0 0 28px">No ofrecemos capacidad que todavía no tenemos. Abrimos acotado con dos o tres cuadrillas híbridas, mostramos el estándar en obra, y escalamos según sus requerimientos, sin pasarle el trabajo a terceros.</p>
       <a class="boton lleno" href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">Escríbenos por WhatsApp</a>
     </div>
     <ul class="datos">
