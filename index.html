@@ -280,12 +280,24 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
   .cifras div{border-left:0; padding:0}
   .cierre .env{grid-template-columns:1fr; gap:40px}
   .masthead nav{display:none}
-  /* en pantalla angosta las cifras van antes de la foto vertical,
-     para que los numeros aparezcan sin tener que deslizar hasta abajo */
+  /* En pantalla angosta se reordena la portada: texto, cifras, foto e
+     indice al final. Asi los numeros aparecen una pantalla antes en vez
+     de quedar detras de la foto vertical y de diez enlaces.
+     El indice vive dentro de la misma caja que el titular, asi que para
+     poder ordenarlo aparte hay que disolver esa caja con display:contents
+     y devolverle a mano el ancho y el aire lateral a sus dos piezas. */
   .portada{display:flex; flex-direction:column}
-  .portada>.env:first-of-type{order:1}
-  .portada>.env:last-of-type{order:2}
+  .portada>.env:first-of-type{display:contents}
+  .portada>.env:first-of-type>div:first-child{
+    order:1; width:100%; max-width:1120px; margin:0 auto; padding:0 28px;
+  }
+  /* width:100% porque en columna flexible el margin:auto de .env la
+     encoge a su contenido y las cifras quedaban angostas y centradas */
+  .portada>.env:last-of-type{order:2; width:100%}
   .portada>.apertura{order:3}
+  /* con margen y no con padding: el filete de arriba lleva el mismo
+     retiro que el texto, en vez de cruzar la pantalla de borde a borde */
+  .portada>.env:first-of-type>.indice{order:4; margin:46px 28px 0}
 }
 </style>
 </head>
