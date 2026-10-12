@@ -108,6 +108,10 @@ article[id],section[id]{scroll-margin-top:76px}
 /* ---------- portada editorial ---------- */
 .portada{padding:72px 0 0}
 .portada .env{display:grid; grid-template-columns:1.55fr .95fr; gap:72px; align-items:start}
+/* la fila de cifras no lleva indice al lado, asi que no tiene por que
+   quedarse en la columna angosta: se abre a todo el ancho y queda alineada
+   con la tabla y la galeria de mas abajo */
+.portada>.env:last-of-type{display:block}
 .kicker{font:600 11px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--azul); margin-bottom:26px}
 h1{font:400 clamp(40px,5.6vw,68px)/1.08 var(--serif); letter-spacing:-.02em; margin:0 0 30px}
 h1 em{font-style:italic; color:var(--azul)}
@@ -157,7 +161,7 @@ h1 em{font-style:italic; color:var(--azul)}
 .apertura{
   margin:64px auto 0; max-width:1120px; padding:0 28px;
   display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1fr);
-  gap:52px; align-items:center;
+  gap:52px; align-items:end;
 }
 /* la foto va completa: sin object-fit y sin aspect-ratio, manda su propia forma */
 .apertura img{display:block; width:100%; height:auto}
