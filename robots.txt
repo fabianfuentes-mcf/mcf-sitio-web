@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# versiones viejas: siguen en linea por si hay algun enlace repartido,
+# pero no se indexan. Que un mandante encuentre en Google tres propuestas
+# descartadas del mismo sitio no suma.
+Disallow: /propuestas/
+Disallow: /anterior/
+
 Sitemap: https://empresamcf.com/sitemap.xml
