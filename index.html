@@ -125,6 +125,17 @@ h1 em{font-style:italic; color:var(--azul)}
 .indice a:hover{color:var(--azul)}
 
 .acciones{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px}
+/* la linea de disponibilidad va sobre los botones: para un mandante que
+   necesita cuadrillas pronto es el dato que mas pesa de toda la portada */
+.disponible{margin:30px 0 0; font:400 15.5px/1.5 var(--sans); color:var(--tinta-2)}
+.disponible b{color:var(--tinta); font-weight:600}
+/* el punto va dentro del texto y no como caja aparte: asi la frase no se
+   parte en dos columnas al angostarse y la linea sigue partiendo del margen */
+.disponible b::before{
+  content:""; display:inline-block; width:7px; height:7px; margin-right:10px;
+  border-radius:50%; background:var(--azul); vertical-align:.12em;
+}
+.disponible + .acciones{margin-top:22px}
 /* invitacion al cerrar la galeria, en el punto de mayor conviccion */
 .invita{
   margin:34px 0 0; padding-top:22px; border-top:1px solid var(--linea);
@@ -328,6 +339,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
       <p class="kicker">Fibra óptica · Obra civil · Certificación OTDR</p>
       <h1>Cuadrillas propias, equipamiento propio, <em>un solo responsable</em>.</h1>
       <p class="entrada"><b>Somos la contratista que ejecuta en terreno.</b> Trabajamos para operadores y para contratistas principales que necesitan cuadrillas propias, con equipamiento propio, y un proyecto que llega cerrado: certificado, con as-built y con la carpeta lista para presentar.</p>
+      <p class="disponible"><b>Disponibilidad inmediata</b> para entrar a obra.</p>
       <div class="acciones">
         <a class="boton lleno" href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">Escríbenos por WhatsApp</a>
         <a class="boton" href="#obras">Ver obras ejecutadas</a>
