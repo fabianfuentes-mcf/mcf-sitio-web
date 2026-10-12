@@ -136,7 +136,10 @@ h1 em{font-style:italic; color:var(--azul)}
   border-radius:50%; background:var(--azul); vertical-align:.12em;
 }
 .disponible + .acciones{margin-top:22px}
-/* invitacion al cerrar la galeria, en el punto de mayor conviccion */
+/* invitacion al cerrar la galeria, en el punto de mayor conviccion.
+   .cuerpo es una grilla de 120px + contenido: sin grid-column el parrafo
+   caia en la columna del rotulo y quedaba en una tira de 120px de ancho */
+.cuerpo>.invita{grid-column:2}
 .invita{
   margin:34px 0 0; padding-top:22px; border-top:1px solid var(--linea);
   font:400 16.5px/1.65 var(--sans); color:var(--tinta-2);
@@ -287,6 +290,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
 @media (max-width:900px){
   .portada .env{grid-template-columns:1fr; gap:46px}
   .cab,.cuerpo{grid-template-columns:1fr; gap:14px}
+  .cuerpo>.invita{grid-column:1}
   .cifras{grid-template-columns:1fr 1fr; gap:26px 0}
   .cifras div{border-left:0; padding:0}
   .cierre .env{grid-template-columns:1fr; gap:40px}
