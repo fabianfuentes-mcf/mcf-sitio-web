@@ -171,7 +171,9 @@ h1 em{font-style:italic; color:var(--azul)}
 }
 .apertura figcaption b{font-style:normal; font-weight:600; color:var(--tinta)}
 @media (max-width:860px){
-  .apertura{grid-template-columns:1fr; gap:22px; align-items:start; padding:0 22px}
+  /* 28px, el mismo retiro que .env: con 22 la foto sobresalia seis pixeles
+     a cada lado y no calzaba con el texto de arriba ni con las cifras */
+  .apertura{grid-template-columns:1fr; gap:22px; align-items:start; padding:0 28px}
   .apertura figcaption{padding-bottom:0}
 }
 
