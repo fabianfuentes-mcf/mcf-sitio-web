@@ -73,7 +73,21 @@ a{color:var(--azul)}
 .regla{border:0; border-top:1px solid var(--linea); margin:0}
 
 /* ---------- cabecera ---------- */
-.masthead{padding:26px 0 18px}
+.masthead{
+  padding:26px 0 18px; position:sticky; top:0; z-index:60;
+  background:var(--papel); transition:padding .18s ease;
+}
+/* al bajar se achica y dibuja su propia linea, para no tapar texto */
+.masthead.compacto{padding:11px 0 10px; border-bottom:1px solid var(--linea)}
+@media (prefers-reduced-motion:reduce){ .masthead{transition:none} }
+/* los anclajes no deben quedar debajo de la cabecera fija */
+article[id],section[id]{scroll-margin-top:76px}
+.cabecera-acciones{display:flex; align-items:center; gap:26px}
+.wsp{
+  font:600 13px/1 var(--sans); color:var(--azul); text-decoration:none; white-space:nowrap;
+  border:1px solid var(--linea); border-radius:2px; padding:9px 14px;
+}
+.wsp:hover{background:var(--azul); border-color:var(--azul); color:#fff}
 .masthead .env{display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap}
 .marca{display:flex; align-items:center; gap:11px}
 .marca img{width:34px}
@@ -82,6 +96,14 @@ a{color:var(--azul)}
 .masthead nav{display:flex; gap:26px; font:400 14px/1 var(--sans)}
 .masthead nav a{color:var(--tinta-2); text-decoration:none}
 .masthead nav a:hover{color:var(--azul)}
+
+/* bajo 440px la marca y el boton no caben en una sola fila: se oculta la
+   bajada de la marca para que el boton no se descuelgue a una segunda linea.
+   Va despues de .marca span, si no la regla de arriba lo anula. */
+@media (max-width:440px){
+  .marca span{display:none}
+  .wsp{padding:9px 12px}
+}
 
 /* ---------- portada editorial ---------- */
 .portada{padding:72px 0 0}
@@ -103,6 +125,13 @@ h1 em{font-style:italic; color:var(--azul)}
 .indice a:hover{color:var(--azul)}
 
 .acciones{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px}
+/* invitacion al cerrar la galeria, en el punto de mayor conviccion */
+.invita{
+  margin:34px 0 0; padding-top:22px; border-top:1px solid var(--linea);
+  font:400 16.5px/1.65 var(--sans); color:var(--tinta-2);
+}
+.invita a{font-weight:600; text-decoration:none; border-bottom:1px solid var(--azul)}
+.invita a:hover{color:var(--azul-cl); border-color:var(--azul-cl)}
 .boton{
   display:inline-block; padding:13px 24px; text-decoration:none; font:600 15px/1 var(--sans);
   border:1px solid var(--azul); color:var(--azul); border-radius:2px;
@@ -251,6 +280,12 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
   .cifras div{border-left:0; padding:0}
   .cierre .env{grid-template-columns:1fr; gap:40px}
   .masthead nav{display:none}
+  /* en pantalla angosta las cifras van antes de la foto vertical,
+     para que los numeros aparezcan sin tener que deslizar hasta abajo */
+  .portada{display:flex; flex-direction:column}
+  .portada>.env:first-of-type{order:1}
+  .portada>.env:last-of-type{order:2}
+  .portada>.apertura{order:3}
 }
 </style>
 </head>
@@ -262,12 +297,15 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
       <img src="img/mcf-simbolo.svg" alt="" width="34" height="30">
       <div><b>MCF</b><span>Ingeniería y Construcción</span></div>
     </div>
-    <nav>
-      <a href="#referencias">Referencias</a>
-      <a href="#obras">Obras</a>
-      <a href="#capacidad">Capacidad</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <div class="cabecera-acciones">
+      <nav>
+        <a href="#referencias">Referencias</a>
+        <a href="#obras">Obras</a>
+        <a href="#capacidad">Capacidad</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="wsp" href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">WhatsApp</a>
+    </div>
   </div>
 </header>
 <hr class="regla">
@@ -362,6 +400,7 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
       <figure><picture><source srcset="img/obra/compactacion-zanja.webp" type="image/webp"><img src="img/obra/compactacion-zanja.jpg" width="1200" height="800" alt="Compactación del fondo de zanja con apisonador antes de tender los ductos."></picture><figcaption>Compactación por capas.</figcaption></figure>
       <figure><picture><source srcset="img/obra/camara-ladrillo.webp" type="image/webp"><img src="img/obra/camara-ladrillo.jpg" width="1200" height="800" alt="Cámara de paso levantada en ladrillo, con los ductos ya entrando por el costado de la excavación."></picture><figcaption>Cámara de paso en construcción.</figcaption></figure>
     </div>
+    <p class="invita">Todas estas fotos son de obra propia, ejecutada por cuadrillas de MCF. Si necesitas cuadrillas con este estándar, <a href="https://wa.me/56959312452?text=Hola%2C%20escribo%20desde%20el%20sitio%20de%20MCF.%20Quiero%20consultar%20por%20disponibilidad%20de%20cuadrillas." rel="noopener">escríbenos por WhatsApp</a>.</p>
   </div>
 </article>
 
@@ -520,6 +559,17 @@ td.fecha{font:400 13px/1.7 var(--mono); color:var(--tinta-3); width:21%; white-s
     <span>Santiago de Chile</span>
   </div>
 </footer>
+
+<script>
+/* la cabecera queda igual arriba y se compacta recien al bajar */
+(function(){
+  var h = document.querySelector('.masthead');
+  if(!h) return;
+  function marcar(){ h.classList.toggle('compacto', window.scrollY > 60); }
+  marcar();
+  addEventListener('scroll', marcar, {passive:true});
+})();
+</script>
 
 </body>
 </html>

@@ -12,3 +12,6 @@ desktop.ini
 # nunca subir originales de fotos sin recortar:
 # traen la barra del GPS con la direccion exacta
 herramientas/originales/
+
+# herramientas locales, no se publican
+.claude/
