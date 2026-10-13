@@ -35,32 +35,47 @@ algo sale mal se puede volver a la versión anterior desde el panel de Vercel.
 
 ---
 
-## Cuando llegue el dominio
+## El dominio
 
-Hoy `empresamcf.com` está estacionado en Hostinger: solo correo, sin plan de
-hosting, sin SSL y sin registro `www`.
+`empresamcf.com` ya está apuntando a Vercel (12 de octubre de 2026). El sitio
+responde en `https://empresamcf.com/` y `www` redirige al dominio sin www.
 
-Para apuntarlo a Vercel **no hay que mover los nameservers**: eso rompería el
-correo corporativo. Se hace con registros DNS en el panel de Hostinger:
+El dominio se administra en **Hostinger**, pero no en la cuenta personal de
+Fabián: está en la cuenta a la que pertenecen las diez casillas de correo
+(`arturo.prestifilippo@empresamcf.com` y las demás). Si hay que volver a tocar
+DNS, hay que entrar con esa cuenta.
 
-| Tipo | Nombre | Valor |
-|---|---|---|
-| A | `@` | `76.76.21.21` |
-| CNAME | `www` | `cname.vercel-dns.com` |
+**Los nameservers siguen en Hostinger** (`ns1`/`ns2.dns-parking.com`) y no se
+mueven nunca: pasarlos a Vercel rompe el correo corporativo. Todo se hace con
+registros DNS en el panel de Hostinger:
 
-Los registros MX del correo se quedan intactos. Vercel emite el certificado
-SSL solo.
+| Tipo | Nombre | Valor | TTL |
+|---|---|---|---|
+| A | `@` | `216.198.79.1` | 300 |
+| CNAME | `www` | `814ce3cc86db91c1.vercel-dns-017.com.` | 14400 |
 
-En Vercel: **Settings → Domains → Add** `empresamcf.com`. Confirma los
-valores ahí antes de escribirlos, por si Vercel cambia la IP.
+El CNAME de `www` es específico de este proyecto: Vercel lo genera por
+proyecto, así que no sirve copiarlo para otro sitio. Si alguna vez hay que
+rehacerlo, el valor correcto se lee en **Vercel → Settings → Domains**, no de
+acá; Vercel ha cambiado estos destinos antes (el viejo `76.76.21.21` y
+`cname.vercel-dns.com` siguen funcionando, pero ya no son lo que muestra).
 
-Cuando el dominio esté andando, en `index.html` el `canonical` y las etiquetas
-`og:` ya apuntan a `https://empresamcf.com/`, así que no hay que tocar nada.
+Los MX (`mx1`/`mx2.hostinger.com`), el SPF, el DMARC y los tres DKIM se quedan
+intactos. Vercel emite el certificado SSL solo, unos minutos después de que el
+DNS propaga.
+
+En Vercel hay tres entradas en **Settings → Domains**: `empresamcf.com`
+conectado a Producción, `www.empresamcf.com` como redirección 308 al dominio
+sin www, y `mcf-sitio-web.vercel.app`, que sigue andando como respaldo.
 
 ---
 
 ## Nota sobre Google
 
-Mientras la web viva en `.vercel.app`, el `canonical` del HTML le dice a
-Google que la dirección buena es `empresamcf.com`. Por eso no se arma un
-duplicado que compita con el sitio definitivo. No hay que hacer nada.
+El `canonical`, el `sitemap.xml`, el JSON-LD y las etiquetas `og:` apuntan
+todos a `https://empresamcf.com/`, así que la dirección de Vercel no compite
+con el sitio definitivo aunque siga en línea.
+
+Lo que falta es registrar el dominio en **Google Search Console** y enviar el
+sitemap (`https://empresamcf.com/sitemap.xml`). Sin eso Google igual va a
+encontrar el sitio, pero se demora bastante más.
